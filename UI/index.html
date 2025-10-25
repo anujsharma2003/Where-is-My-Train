@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Train Search Results</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <header class="header">
+            <div class="logo">
+                <span class="train-icon">🚂</span>
+                <h1>TrainFinder</h1>
+            </div>
+            <div class="tagline">Find Your Perfect Journey</div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-card">
+                <h2>Search Trains</h2>
+                <div class="search-form">
+                    <div class="input-group">
+                        <label for="sourceCode">From</label>
+                        <input type="text" id="sourceCode" placeholder="Enter station code (e.g., BCT)" value="BCT">
+                    </div>
+                    <div class="swap-icon" onclick="swapStations()">⇄</div>
+                    <div class="input-group">
+                        <label for="destinationCode">To</label>
+                        <input type="text" id="destinationCode" placeholder="Enter station code (e.g., MAS)" value="MAS">
+                    </div>
+                    <button class="search-btn" onclick="searchTrains()">
+                        <span class="btn-text">Search Trains</span>
+                        <span class="btn-icon">🔍</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Route Information -->
+        <section class="route-info" id="routeInfo" style="display: none;">
+            <div class="route-card">
+                <div class="station">
+                    <div class="station-code" id="fromCode">BCT</div>
+                    <div class="station-name" id="fromName">Mumbai</div>
+                </div>
+                <div class="route-arrow">
+                    <div class="arrow-line"></div>
+                    <span class="train-moving">🚄</span>
+                </div>
+                <div class="station">
+                    <div class="station-code" id="toCode">MAS</div>
+                    <div class="station-name" id="toName">Chennai</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Spinner -->
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Searching for trains...</p>
+        </div>
+
+        <!-- Results Section -->
+        <section class="results-section">
+            <div class="results-header" id="resultsHeader" style="display: none;">
+                <h3>Available Trains</h3>
+                <div class="results-count">
+                    <span id="trainCount">0</span> trains found
+                </div>
+            </div>
+            <div id="trainsContainer"></div>
+            <div class="no-results" id="noResults" style="display: none;">
+                <div class="no-results-icon">🚫</div>
+                <h3>No Trains Found</h3>
+                <p>Try searching with different station codes</p>
+            </div>
+        </section>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage" style="display: none;">
+            <span class="error-icon">⚠️</span>
+            <span id="errorText"></span>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
